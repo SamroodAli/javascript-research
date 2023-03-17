@@ -16,19 +16,19 @@ const symbol4 = Symbol.for("value");
 console.log(symbol3 === symbol4); //true
 
 // symbols as keys
-const obj = {
+const child = {
   [symbol1]: "one",
   [symbol2]: "two",
   [symbol3]: "three", //overridden
   [symbol4]: "four", // overrides the line above
 };
 
-console.log(obj[Symbol("value")]); //undefined
+console.log(child[Symbol("value")]); //undefined
 
-console.log(obj[symbol1]); // one
+console.log(child[symbol1]); // one
 
-console.log(obj[symbol2]); // two
+console.log(child[symbol2]); // two
 
-console.log(obj[symbol3]); //four
+console.log(child[symbol3]); //four
 
-console.log(obj[Symbol.for("value")]); //four
+console.log(child[Symbol.for("value")]); //four
