@@ -96,3 +96,25 @@ console.log("array slice");
   //                      index:  [ 1, 2, 3, 4]
   console.log(slice); //  values  [ 2, 3, 4, 5]
 }
+
+// ARRAY CONCAT
+
+{
+  const array = [1, 2, 3, 4, 5, 6];
+
+  // concat variable arity values
+  const newArray = array.concat(7, 8);
+
+  console.log(newArray);
+
+  // concat another array(s)
+  const anotherNewArray = newArray.concat([9, 10]);
+
+  console.log(anotherNewArray);
+
+  {
+    // concat any number of arrays
+    const anotherNewArray = newArray.concat([11, 12], [13, 14]);
+    console.log(anotherNewArray);
+  }
+}
