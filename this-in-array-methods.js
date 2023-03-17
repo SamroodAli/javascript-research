@@ -23,20 +23,8 @@ console.log("map example:");
 
 // other apis that takes'this' argument
 
-console.log("filter example");
-[1, 2, 3].filter(
-  function foo() {
-    console.log(this.name); // 'Samrood'
-  },
-  { name: "Samrood" }
-);
-
-console.log("find example");
-[1, 2, 3].find(
-  function foo() {
-    console.log(this.name); // 'Samrood'
-  },
-  { name: "Samrood" }
+console.log(
+  "Array find,findIndex, filter, index all takes in a function and the 'thisArg' ('this' binding)"
 );
 
 console.log("This is different in Array.reduce");
