@@ -76,8 +76,23 @@
   {
     const array = [1, 2, 3];
     // we can also use this to add elements at an index, adding replacements without actually removing any elements
-    array.splice(1, "hello", "world");
+    array.splice(1, 0, "hello", "world");
 
     console.log(array); // [1,'hello','world', 2 , 3]
   }
+}
+
+// ARRAY SLICE
+console.log("array slice");
+
+{
+  const array = [1, 2, 3, 4, 5, 6, 7];
+
+  // array slice takes two arguments, starting index and ending index
+  // returns a new array, not a mutating method
+  // ending index is not included
+  const slice = array.slice(1, 5);
+
+  //                      index:  [ 1, 2, 3, 4]
+  console.log(slice); //  values  [ 2, 3, 4, 5]
 }
