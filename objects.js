@@ -16,3 +16,5 @@ console.log(child.hasOwnProperty("name")); // false //checks only 'own' object, 
 console.log(child.hasOwnProperty("age")); // true
 
 // 'in' checks inheritance also but 'hasOwnProperty' only checks the target object and not it's parents
+
+console.log("toString" in child); //true because toString is available in every object
