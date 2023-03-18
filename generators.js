@@ -100,3 +100,43 @@ function* anotherGeneratorYieldReturns() {
   console.log(generator.next(5)); // {value:20, done:false}
   console.log(generator.next(0)); // {value:20, done:false} // 20 because we are just incrementing by zero
 }
+
+/** force returning a generator */
+function* generatorThatWillBeForceReturned() {
+  yield 1;
+  yield 2;
+  yield 3;
+  yield 4;
+  return 5;
+}
+
+{
+  const generator = generatorThatWillBeForceReturned();
+
+  console.log(generator.next()); // {value:1,done:false}
+  console.log(generator.next()); // {value:2,done:false}
+  // force return
+  console.log(
+    generator.return(
+      "any return value. if this is empty, it will be undefined. the return in the generator is ignored"
+    )
+  ); // {value:"any return value. if this.....",done:false}
+}
+
+/** force 'throwing' a generator */
+function* generatorThatWillBeForceReturned() {
+  yield 1;
+  yield 2;
+  yield 3;
+  yield 4;
+  return 5;
+}
+
+{
+  const generator = generatorThatWillBeForceReturned();
+
+  console.log(generator.next()); // {value:1,done:false}
+  console.log(generator.next()); // {value:2,done:false}
+  // force return
+  console.log(generator.throw(new Error("some error"))); // this will be thrown where the previous yield was
+}
