@@ -17,10 +17,16 @@ function logThis() {
 logThis();
 
 // in browsers
-// it's almost the same but except for global objects, you get window object
-// and instead of module object, you still get window object.
 
-// use strict behaves the same way unless it is a module.
-// even if we use strict mode,
-// console.this(this) out in global will output the window object, but it will be undefined in a module.
-// inside functions in strict mode, we get undefined, just like in nodejs
+// modules are always in strict mode. they always give undefined for thisArg for global scope and global functions
+
+// for normal scripts not in strict mode:
+// thisArg in global scope and in inside global functions is the window object.
+
+// for normal scripts in strict mode:
+// thisArg in global will still output the window object.
+// for inside functions in global scope, we get undefined just like in nodejs
+
+// of course this is when this is not manually bound or it's an object method. we are talking about
+// console.log(this) //out in global scope
+// functions like the logThis function above
