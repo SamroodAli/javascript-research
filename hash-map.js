@@ -1,4 +1,4 @@
-const map = new Map();
+const map = new Map([["someKey", "someValue"]]);
 
 // adding values
 
