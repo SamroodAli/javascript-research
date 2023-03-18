@@ -77,6 +77,9 @@ for (const [key, value] of map) {
   console.log(key, value);
 }
 
+/** MAP is not serializable to JSON */
+console.log(JSON.stringify(map), "map stringified");
+
 // get map size
 console.log(map.size);
 
