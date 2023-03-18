@@ -5,7 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Script tags</title>
+    <!-- defer makes the script load asynchronously and runs the script only after the DOM is created but before DomContentLoaded event listeners-->
     <script src="./script.js" defer></script>
+
+    <!-- async makes the script load asynchronously as well but the script is executed as soon as it is downloaded. Html parsing is paused until the script execution is finished -->
+    <!-- <script src="./script.js" async></script> -->
   </head>
-  <body></body>
+  <body>
+    <button id="button">Change color</button>
+  </body>
 </html>
