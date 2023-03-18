@@ -3,6 +3,12 @@ console.log(Number(null));
 console.log(null + 12); //12 as null is evaluated to 0 here // Number(null) is being called
 console.log(null - 12); // -12, same as null is evaluated to 0 //Number(null) is being called
 
+// but this doesn't work with undefined as Number(undefined ) = NaN
+// and we get NaN if we try to do a math operation on a number and undefined
+console.log(Number(undefined));
+console.log(undefined + 10); // NaN + 10 => NaN
+console.log(undefined - 10); // Nan - 10 => NaN
+
 console.log(Number(true)); //1
 console.log(Number(false)); //0
 
