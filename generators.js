@@ -56,3 +56,47 @@ function* generateNumbers(max) {
     console.log(value); // logs 3 to 10 // because 1 and 2 are already over
   }
 }
+
+// Some special features of generators
+
+/** yield can return a value that is acquired from the respective next method call*/
+
+function* generatorYieldReturns() {
+  const value = yield "first value"; // yield here return the value from the second next call
+
+  console.log(value, ":value from the second next call");
+
+  yield value;
+}
+
+{
+  const generator = generatorYieldReturns();
+
+  console.log(generator.next()); // {value:'first value', done:false}
+
+  console.log(generator.next("value for second yield")); // the previous yield evaluates to this value
+}
+
+function* anotherGeneratorYieldReturns() {
+  let i = 0;
+
+  while (true) {
+    i += yield i;
+
+    if (i >= 100) break;
+  }
+
+  return i;
+}
+
+{
+  const generator = anotherGeneratorYieldReturns();
+
+  console.log(generator.next()); // {value:0, done:false}
+  console.log(generator.next(15)); // {value:15, done:false}
+  // this is 15 because the previous yield is replaced by 15, and i gets incremented by 15 in i+= 15,
+  //and we yield i in the next iteration where i is 15
+
+  console.log(generator.next(5)); // {value:20, done:false}
+  console.log(generator.next(0)); // {value:20, done:false} // 20 because we are just incrementing by zero
+}
