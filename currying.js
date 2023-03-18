@@ -40,3 +40,11 @@ console.log(myCurriedSum(10)(20)(30));
 
 const myCurriedMultiply = curry(multiply);
 console.log(myCurriedMultiply(10)(20));
+
+// currying is useful for partial application
+// we can easily create a multiplyBy10 function now
+
+const multiplyBy10 = curry(multiply)(10);
+
+console.log(multiplyBy10(13));
+console.log(multiplyBy10(12));
