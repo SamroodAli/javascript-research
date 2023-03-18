@@ -125,11 +125,16 @@ function* generatorThatWillBeForceReturned() {
 
 /** force 'throwing' a generator */
 function* generatorThatWillBeForceReturned() {
-  yield 1;
-  yield 2;
-  yield 3;
-  yield 4;
-  return 5;
+  try {
+    yield 1;
+    yield 2;
+    yield 3;
+    yield 4;
+    return 5;
+  } catch (err) {
+    // error caught from the generator.throw from outside
+    console.error(err);
+  }
 }
 
 {
@@ -139,4 +144,36 @@ function* generatorThatWillBeForceReturned() {
   console.log(generator.next()); // {value:2,done:false}
   // force return
   console.log(generator.throw(new Error("some error"))); // this will be thrown where the previous yield was
+}
+
+/**  Generators consuming other generators */
+// we can use the yield* syntax to consume other generators
+
+function* generator1() {
+  yield 1;
+  yield 2;
+}
+
+function* generator2() {
+  yield 3;
+  yield 4;
+}
+
+function* generatorConsumingOtherGenerator() {
+  yield* generator1(); // this will first start yielding generator1 sequence
+
+  yield 2.5; // we can add our own yield values
+
+  yield* generator2(); // yielding again from another generator
+}
+
+{
+  const generator = generatorConsumingOtherGenerator();
+
+  for (const value of generator) {
+    console.log(value); // 1, 2, 2.5 , 3 , 4
+    // 1 and 2 from generator1,
+    // 2.5 from generatorConsumingOtherGenerator.
+    // 3 and 4 are from generator 2
+  }
 }
