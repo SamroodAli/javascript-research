@@ -21,3 +21,7 @@ npm run dev
 
 1. Enter the directory number to run in the browser. You can
    go to http://localhost:3000 to access the directory
+
+## JS style guide
+
+[Google's JS style guide](https://google.github.io/styleguide/jsguide.html)
