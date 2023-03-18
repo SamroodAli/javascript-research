@@ -1,0 +1,15 @@
+{
+  "name": "javascript-research",
+  "version": "1.0.0",
+  "description": "",
+  "main": "arrays.js",
+  "scripts": {
+    "dev": "node exercise-cli"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serve-handler": "^6.1.5"
+  }
+}
