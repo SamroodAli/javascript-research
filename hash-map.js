@@ -52,6 +52,12 @@ map.forEach((value, key, map) => {
   console.log(key, value);
 });
 
+// for of loop with map
+
+for (const [key, value] of map) {
+  console.log(key, value);
+}
+
 // get map size
 console.log(map.size);
 
