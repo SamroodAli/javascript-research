@@ -1,6 +1,7 @@
+// "use strict";
 exports.name = "Samrood";
 
-console.log(this); //module object, {name:'Samrood'}
+console.log(this); //module object, {name:'Samrood'} // even in strict mode
 
 function logThisInStrictMode() {
   "use strict";
