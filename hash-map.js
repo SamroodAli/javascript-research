@@ -39,11 +39,30 @@ console.log(map.has(fn)); // true
 
 // getting the keys from the hash map
 
-console.log(map.keys());
+const keys = map.keys();
 
 // getting the values from the hash map
 
-console.log(map.values());
+const values = map.values();
+
+// getting both keys and values
+const entries = map.entries();
+
+// keys,values and entries return an iterator
+
+console.log(keys.next());
+
+for (const key of keys) {
+  console.log("key", key);
+}
+
+for (const value of values) {
+  console.log("value", value);
+}
+
+for (const [key, value] of entries) {
+  console.log(key, value, "key-value pair");
+}
 
 // iterating with forEach
 
