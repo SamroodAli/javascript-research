@@ -1,23 +1,14 @@
 // state  -> pending, fulfilled or rejected
-//TODO: finish learning promise chaining
 
 {
   const originalPromise = promiseFactory(new Error("something went wrong"));
 
-  const promiseFromThen = originalPromise.then();
-  const promiseFromCatch = originalPromise.catch((error) => {});
-  // console.log(promiseFromThen === originalPromise); // false, promise.then returns a new promise
-  // console.log(promiseFromCatch === originalPromise); // false, promise.catch returns a new promise
-}
+  const promise1 = originalPromise.then(onData); // promise1 will be evaluated
+  // with whatever onData returns but this will throw as originalPromise throws and there is no catch statement here
 
-{
-  const originalPromise = promiseFactory(10);
+  const promise2 = originalPromise.catch(onError); // promise2 will be evaluated with whatever onError returns
 
-  originalPromise
-    .then((value) => value + 10)
-    .then((value) => value + 10)
-    .then((value) => value + 10)
-    .then(console.log);
+  promise2.then(console.log); // this will run with whatever onError returns because the .then is after .catch
 }
 
 /** Helper functions */
@@ -35,4 +26,12 @@ function promiseFactory(value) {
   });
 
   return promise;
+}
+
+function onError(error) {
+  return "Error from onError";
+}
+
+function onData(data) {
+  return data;
 }
