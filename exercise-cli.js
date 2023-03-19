@@ -3,7 +3,6 @@ const path = require("node:path");
 const { stdin: input, stdout: output } = require("node:process");
 const { createInterface } = require("node:readline/promises");
 const serveHandler = require("serve-handler");
-const serverHandler = require("serve-handler");
 const http = require("node:http");
 
 (async () => {
