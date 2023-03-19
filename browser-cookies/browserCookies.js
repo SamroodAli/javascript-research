@@ -23,6 +23,9 @@ console.log(document.cookie); // won't have name and sessionHours
 // path=somePath -> path within the website where the cookie is going to be used // defaults to /
 // secure -> can only work with HTTPS and not with http
 // samesite=strict -> cookie should not be shared cross-origin
+// this also means the browser won't include the cookie if a different domain is sending a post request to our server
+// not including this might help a different website send a post request to our server with the browser adding the necessary cookies
+// which is known as a CSRF ( cross site request forgery) attack
 // priority=high, sets priority for cookies when cookies exceed allowed limit
 // and they are being deleted, not sure about browser support for this. chrome does.
 
