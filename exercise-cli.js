@@ -22,7 +22,7 @@ const http = require("node:http");
 
   const answer = parseInt(
     await userInput.question(
-      "Which exercise folder do you want to run on the browser ?\n(folder number):"
+      "\nWhich exercise folder do you want to run on the browser ?\nfolder number: "
     )
   );
 
@@ -44,10 +44,17 @@ const http = require("node:http");
   });
 
   server.listen(3000, () => {
-    console.log("\n\n\n********************************************");
-    console.log(`serving directory ${servingDirectory}`);
-    console.log("started listening on http://localhost:3000");
-    console.log("********************************************\n\n\n");
-    console.log("Press control + C to exit");
+    console.log(`
+      
+*************************************************************
+
+  Serving Directory ${servingDirectory}
+
+  Started listening on http://localhost:3000
+
+*************************************************************
+
+Press Control + C to exit
+      `);
   });
 })();
