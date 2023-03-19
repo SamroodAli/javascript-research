@@ -59,3 +59,23 @@ const person = {
   console.log(child.isStudying); // true
   console.log(child.isHuman); // true
 }
+
+// GETTING Prototype with Object.getPrototypeOf // Recommended way
+
+{
+  const child = Object.assign(Object.create(person), {
+    isStudying: true,
+  });
+
+  console.log(Object.getPrototypeOf(child) === person);
+}
+
+// GETTING Prototype with __proto // Not Recommended
+
+{
+  const child = Object.assign(Object.create(person), {
+    isStudying: true,
+  });
+
+  console.log(child.__proto__ === person);
+}
