@@ -25,3 +25,7 @@ npm run dev
 ## JS style guide
 
 [Google's JS style guide](https://google.github.io/styleguide/jsguide.html)
+
+# Attribution
+
+[Javascript.info](https://javascript.info/async-iterators-generators)
