@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Script tags</title>
     <!-- defer makes the script load asynchronously and runs the script only after the DOM is created but before DomContentLoaded event listeners-->
+    <!-- When we have async and defer, async takes precedence. Only when a browser doesn't have async does it fall back to defer -->
     <script src="./script.js" defer></script>
 
     <!-- async makes the script load asynchronously as well but the script is executed as soon as it is downloaded. Html parsing is paused until the script execution is finished -->
